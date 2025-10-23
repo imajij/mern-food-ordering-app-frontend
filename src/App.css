@@ -2,25 +2,26 @@
   --primary-color: #ff6b35;
   --primary-dark: #e85a2a;
   --primary-light: #ff8555;
-  --secondary-color: #004e89;
-  --secondary-dark: #003d6b;
+  --secondary-color: #00d4ff;
+  --secondary-dark: #00b8e6;
   --accent-color: #ffd23f;
   --success-color: #06d6a0;
   --danger-color: #ef476f;
   --warning-color: #f78c6b;
-  --dark-bg: #1a1a2e;
-  --dark-card: #16213e;
+  --dark-bg: #0f0f23;
+  --dark-card: #1a1a35;
+  --dark-card-hover: #252545;
   --light-bg: #f8f9fa;
   --white: #ffffff;
-  --text-dark: #2d3436;
-  --text-light: #636e72;
+  --text-dark: #e8e8f0;
+  --text-light: #a0a0b8;
   --text-white: #ffffff;
-  --border-color: #e1e8ed;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
-  --shadow-3d: 0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  --border-color: #2d2d50;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-3d: 0 20px 60px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
+  --glass-bg: rgba(26, 26, 53, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -31,7 +32,7 @@
 
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a35 50%, #0f0f23 100%);
   background-attachment: fixed;
   color: var(--text-dark);
   line-height: 1.6;
@@ -46,7 +47,8 @@ body::before {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at 30% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%);
   animation: rotate 30s linear infinite;
   pointer-events: none;
   z-index: 0;
@@ -65,18 +67,18 @@ body::before {
   z-index: 1;
 }
 
-/* Glassmorphism Navbar */
+/* Dark Glassmorphism Navbar */
 .navbar {
-  background: rgba(0, 78, 137, 0.9);
+  background: rgba(26, 26, 53, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
   color: var(--text-white);
   padding: 1.2rem 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   animation: slideDown 0.5s ease-out;
 }
 
@@ -102,19 +104,19 @@ body::before {
 .nav-logo {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--accent-color);
+  color: var(--secondary-color);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
-  text-shadow: 2px 2px 8px rgba(255, 210, 63, 0.5);
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
   transform-style: preserve-3d;
 }
 
 .nav-logo:hover {
   transform: translateY(-3px) scale(1.05);
-  text-shadow: 4px 4px 12px rgba(255, 210, 63, 0.8);
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.9);
 }
 
 .nav-menu {
@@ -159,13 +161,13 @@ body::before {
 }
 
 .nav-menu a:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--accent-color);
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--secondary-color);
   transform: translateY(-2px);
 }
 
 .nav-menu span {
-  color: var(--accent-color);
+  color: var(--secondary-color);
   font-weight: 600;
   padding: 0.7rem 1.3rem;
   display: inline-block;
@@ -229,7 +231,7 @@ body::before {
   box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6) !important;
 }
 
-/* Main Content with Glass Effect */
+/* Main Content with Dark Glass Effect */
 .main-content {
   max-width: 1400px;
   margin: 2rem auto;
@@ -238,16 +240,17 @@ body::before {
   width: 100%;
 }
 
-/* 3D Hero Section */
+/* Dark 3D Hero Section */
 .hero {
   text-align: center;
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.9) 0%, rgba(232, 90, 42, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(26, 26, 53, 0.95) 0%, rgba(37, 37, 69, 0.95) 100%);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 212, 255, 0.3);
   color: var(--white);
   border-radius: 30px;
   margin-bottom: 3rem;
-  box-shadow: var(--shadow-3d);
+  box-shadow: var(--shadow-3d), 0 0 60px rgba(0, 212, 255, 0.2);
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
@@ -272,7 +275,7 @@ body::before {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
   animation: rotate 20s linear infinite;
 }
 
@@ -280,10 +283,14 @@ body::before {
   font-size: 4rem;
   margin-bottom: 1.5rem;
   font-weight: 900;
-  text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
   position: relative;
   z-index: 1;
   animation: slideUp 0.8s ease-out;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @keyframes slideUp {
@@ -305,7 +312,7 @@ body::before {
   z-index: 1;
 }
 
-/* 3D Feature Cards */
+/* Dark 3D Feature Cards */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -314,14 +321,14 @@ body::before {
 }
 
 .feature {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(26, 26, 53, 0.7);
   backdrop-filter: blur(10px);
   padding: 3rem 2rem;
   border-radius: 25px;
   text-align: center;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 212, 255, 0.2);
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
@@ -333,8 +340,8 @@ body::before {
   top: 0;
   left: 0;
   right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--success-color));
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--success-color));
   transform: translateY(-100%);
   transition: transform 0.3s ease;
 }
@@ -345,7 +352,8 @@ body::before {
 
 .feature:hover {
   transform: translateY(-15px) rotateY(5deg);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.3);
+  border-color: var(--secondary-color);
 }
 
 .feature h3 {
@@ -397,7 +405,7 @@ body::before {
   box-shadow: 0 15px 35px rgba(255, 107, 53, 0.5);
 }
 
-/* 3D Food Cards */
+/* Dark 3D Food Cards */
 .food-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -406,13 +414,13 @@ body::before {
 }
 
 .food-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(26, 26, 53, 0.8);
   backdrop-filter: blur(10px);
   border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 212, 255, 0.2);
   transform-style: preserve-3d;
   position: relative;
 }
@@ -424,7 +432,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(6, 214, 160, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
@@ -437,7 +445,8 @@ body::before {
 
 .food-card:hover {
   transform: translateY(-20px) rotateX(2deg) rotateY(2deg);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 212, 255, 0.2);
+  border-color: var(--secondary-color);
 }
 
 .food-card img {
@@ -457,25 +466,27 @@ body::before {
   z-index: 2;
 }
 
-/* 3D Cart Items */
+/* Dark 3D Cart Items */
 .cart-item {
   display: flex;
   align-items: center;
   gap: 2rem;
   padding: 2rem;
   border-bottom: none;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(26, 26, 53, 0.8);
   backdrop-filter: blur(10px);
   margin-bottom: 1.5rem;
   border-radius: 20px;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 212, 255, 0.2);
   transform-style: preserve-3d;
 }
 
 .cart-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.2);
+  border-color: var(--secondary-color);
 }
 
 .cart-item img {
@@ -486,15 +497,15 @@ body::before {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Glassmorphism Cards */
+/* Dark Glassmorphism Cards */
 .cart, .cart-empty, .checkout, .admin-dashboard, .orders-page, .admin-orders, .auth-form {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(26, 26, 53, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 3rem;
   border-radius: 30px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(0, 212, 255, 0.2);
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -509,22 +520,22 @@ body::before {
   }
 }
 
-/* 3D Order Cards */
+/* Dark 3D Order Cards */
 .order-card, .admin-order-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(26, 26, 53, 0.9);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 212, 255, 0.2);
   transition: all 0.4s ease;
   transform-style: preserve-3d;
 }
 
 .order-card:hover, .admin-order-card:hover {
   transform: translateY(-10px) rotateY(3deg);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-  border-color: var(--primary-color);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 212, 255, 0.3);
+  border-color: var(--secondary-color);
 }
 
 /* 3D Order Status Badge */
@@ -558,18 +569,18 @@ body::before {
   100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
-/* Modern Filter Buttons */
+/* Dark Modern Filter Buttons */
 .filter-buttons button {
   padding: 0.8rem 2rem;
-  border: 2px solid var(--primary-color);
-  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--secondary-color);
+  background: rgba(26, 26, 53, 0.9);
   backdrop-filter: blur(10px);
-  color: var(--primary-color);
+  color: var(--secondary-color);
   border-radius: 30px;
   cursor: pointer;
   font-weight: 700;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -582,7 +593,7 @@ body::before {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: var(--primary-color);
+  background: var(--secondary-color);
   transform: translate(-50%, -50%);
   transition: width 0.6s, height 0.6s;
   z-index: -1;
@@ -596,12 +607,12 @@ body::before {
 
 .filter-buttons button.active,
 .filter-buttons button:hover {
-  color: var(--white);
+  color: var(--dark-bg);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4), 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
-/* 3D Input Fields */
+/* Dark 3D Input Fields */
 .form-group input,
 .form-group textarea,
 .form-group select,
@@ -609,14 +620,14 @@ body::before {
 .admin-form textarea {
   width: 100%;
   padding: 1rem 1.5rem;
-  border: 2px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 212, 255, 0.2);
   border-radius: 15px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(15, 15, 35, 0.6);
   backdrop-filter: blur(10px);
   color: var(--text-dark);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .form-group input:focus,
@@ -625,9 +636,10 @@ body::before {
 .admin-form input:focus,
 .admin-form textarea:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2), 0 0 0 4px rgba(255, 107, 53, 0.1);
+  border-color: var(--secondary-color);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3), 0 0 0 4px rgba(0, 212, 255, 0.1);
   transform: translateY(-2px);
+  background: rgba(15, 15, 35, 0.8);
 }
 
 /* Add Pulse Animation to Important Buttons */
@@ -655,6 +667,7 @@ body::before {
   margin-bottom: 2rem;
   font-size: 2.2rem;
   font-weight: 800;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 .menu h1 {
@@ -663,6 +676,7 @@ body::before {
   font-size: 2.5rem;
   color: var(--secondary-color);
   font-weight: 800;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 .filter-buttons {
@@ -766,10 +780,11 @@ body::before {
 }
 
 .order-payment {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(15, 15, 35, 0.6);
   padding: 1rem;
   border-radius: 12px;
   margin: 1rem 0;
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .order-payment p {
@@ -790,10 +805,11 @@ body::before {
 }
 
 .customer-info {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(15, 15, 35, 0.6);
   padding: 1rem;
   border-radius: 12px;
   margin-bottom: 1rem;
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .customer-info p {
@@ -846,6 +862,7 @@ body::before {
   margin-bottom: 2rem;
   font-size: 2.2rem;
   font-weight: 800;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 .cart-empty {
@@ -883,11 +900,12 @@ body::before {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(15, 15, 35, 0.6);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1rem;
   border-radius: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .cart-item-controls button {
@@ -913,7 +931,7 @@ body::before {
 .cart-item-controls span {
   font-weight: 700;
   font-size: 1.1rem;
-  color: var(--secondary-color);
+  color: var(--text-dark);
   min-width: 30px;
   text-align: center;
 }
@@ -921,7 +939,7 @@ body::before {
 .cart-item-total {
   font-weight: 800;
   font-size: 1.3rem;
-  color: var(--secondary-color);
+  color: var(--text-dark);
   min-width: 80px;
   text-align: right;
 }
@@ -942,12 +960,13 @@ body::before {
 }
 
 .cart-summary {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(15, 15, 35, 0.6);
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 20px;
   margin-top: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .cart-summary h3 {
@@ -990,6 +1009,7 @@ body::before {
   margin-bottom: 2rem;
   font-size: 2.2rem;
   font-weight: 800;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 .admin-container {
@@ -1000,11 +1020,12 @@ body::before {
 
 .admin-form {
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(15, 15, 35, 0.6);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   height: fit-content;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .admin-form h2 {
@@ -1020,11 +1041,12 @@ body::before {
 }
 
 .admin-list {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(15, 15, 35, 0.6);
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .admin-list h2 {
@@ -1036,23 +1058,23 @@ body::before {
 .admin-list table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(26, 26, 53, 0.6);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .admin-list th,
 .admin-list td {
   padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
 }
 
 .admin-list th {
-  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
-  color: var(--white);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 184, 230, 0.3));
+  color: var(--text-dark);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.9rem;
@@ -1061,10 +1083,11 @@ body::before {
 
 .admin-list tbody tr {
   transition: all 0.3s ease;
+  color: var(--text-dark);
 }
 
 .admin-list tbody tr:hover {
-  background: rgba(255, 107, 53, 0.05);
+  background: rgba(0, 212, 255, 0.1);
   transform: scale(1.01);
 }
 
@@ -1127,6 +1150,7 @@ body::before {
   margin-bottom: 2rem;
   font-size: 2.2rem;
   font-weight: 800;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 .checkout-container {
@@ -1137,19 +1161,21 @@ body::before {
 
 .checkout-form {
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(15, 15, 35, 0.6);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .order-summary {
-  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  background: linear-gradient(135deg, rgba(26, 26, 53, 0.9), rgba(37, 37, 69, 0.9));
   color: var(--white);
   padding: 2rem;
   border-radius: 20px;
   height: fit-content;
-  box-shadow: 0 15px 40px rgba(0, 78, 137, 0.4);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(0, 212, 255, 0.3);
 }
 
 .order-summary h3 {
@@ -1203,6 +1229,7 @@ body::before {
   color: var(--secondary-color);
   font-size: 2rem;
   font-weight: 800;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
 .auth-form p {
@@ -1286,11 +1313,6 @@ body::before {
   background: linear-gradient(135deg, #05b587, #04a376);
   transform: scale(1.08);
   box-shadow: 0 8px 20px rgba(6, 214, 160, 0.5);
-}
-
-.feature p {
-  color: var(--text-light);
-  line-height: 1.8;
 }
 
 /* Responsive adjustments */
