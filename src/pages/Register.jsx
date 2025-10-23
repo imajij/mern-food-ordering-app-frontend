@@ -33,9 +33,19 @@ const Register = () => {
     try {
       const { confirmPassword, ...registerData } = formData;
       const response = await registerUser(registerData);
-      login(response.data.token, response.data.user);
-      navigate('/menu');
+      console.log('Register response:', response.data); // Debug log
+
+      // Backend returns: { _id, name, email, isAdmin, token }
+      const { token, ...userData } = response.data;
+
+      if (token && userData) {
+        login(token, userData);
+        navigate('/menu');
+      } else {
+        setError('Invalid response from server');
+      }
     } catch (err) {
+      console.error('Register error:', err.response?.data); // Debug log
       setError(err.response?.data?.message || 'Registration failed');
     } finally {
       setLoading(false);

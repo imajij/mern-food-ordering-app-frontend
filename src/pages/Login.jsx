@@ -21,9 +21,19 @@ const Login = () => {
 
     try {
       const response = await loginUser(formData);
-      login(response.data.token, response.data.user);
-      navigate('/menu');
+      console.log('Login response:', response.data); // Debug log
+      
+      // Backend returns: { _id, name, email, isAdmin, token }
+      const { token, ...userData } = response.data;
+      
+      if (token && userData) {
+        login(token, userData);
+        navigate('/menu');
+      } else {
+        setError('Invalid response from server');
+      }
     } catch (err) {
+      console.error('Login error:', err.response?.data); // Debug log
       setError(err.response?.data?.message || 'Login failed');
     } finally {
       setLoading(false);

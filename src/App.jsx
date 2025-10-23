@@ -10,6 +10,8 @@ import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import AdminDashboard from './pages/AdminDashboard';
+import Orders from './pages/Orders';
+import AdminOrders from './pages/AdminOrders';
 import './App.css';
 
 function App() {
@@ -42,10 +44,26 @@ function App() {
                   }
                 />
                 <Route
+                  path="/orders"
+                  element={
+                    <ProtectedRoute>
+                      <Orders />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
                   path="/admin"
                   element={
                     <ProtectedRoute adminOnly>
                       <AdminDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/admin/orders"
+                  element={
+                    <ProtectedRoute adminOnly>
+                      <AdminOrders />
                     </ProtectedRoute>
                   }
                 />

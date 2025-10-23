@@ -29,8 +29,12 @@ const Navbar = () => {
                   🛒 Cart ({getTotalItems()})
                 </Link>
               </li>
-              {user.role === 'admin' && (
-                <li><Link to="/admin">Admin</Link></li>
+              <li><Link to="/orders">My Orders</Link></li>
+              {user.isAdmin && (
+                <>
+                  <li><Link to="/admin">Menu Management</Link></li>
+                  <li><Link to="/admin/orders">All Orders</Link></li>
+                </>
               )}
               <li><span>Hello, {user.name}</span></li>
               <li><button onClick={handleLogout}>Logout</button></li>
