@@ -57,17 +57,17 @@ const Orders = () => {
             <div key={order._id} className="order-card">
               <div className="order-header">
                 <div>
-                  <h3>Order #{order._id.slice(-8).toUpperCase()}</h3>
+                  <h3>Order #{order._id?.slice(-8).toUpperCase() || 'N/A'}</h3>
                   <p className="order-date">
-                    {new Date(order.createdAt).toLocaleDateString('en-US', {
+                    {order.createdAt ? new Date(order.createdAt).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'
-                    })} at{' '}
-                    {new Date(order.createdAt).toLocaleTimeString('en-US', {
+                    }) : 'N/A'} at{' '}
+                    {order.createdAt ? new Date(order.createdAt).toLocaleTimeString('en-US', {
                       hour: '2-digit',
                       minute: '2-digit'
-                    })}
+                    }) : 'N/A'}
                   </p>
                 </div>
                 <div className="order-status" style={{ background: getStatusColor(order.status) }}>
@@ -76,22 +76,22 @@ const Orders = () => {
               </div>
               <div className="order-items">
                 <strong>Items:</strong>
-                {order.items.map((item, index) => (
+                {order.items?.map((item, index) => (
                   <div key={index} className="order-item">
-                    <span>{item.food?.name || 'Item'} x {item.quantity}</span>
-                    <span>${(item.price * item.quantity).toFixed(2)}</span>
+                    <span>{item.food?.name || 'Item'} x {item.quantity || 0}</span>
+                    <span>${((item.price || 0) * (item.quantity || 0)).toFixed(2)}</span>
                   </div>
-                ))}
+                )) || <p>No items</p>}
               </div>
               <div className="order-footer">
                 <div className="order-address">
-                  <strong>Delivery Address:</strong> {order.deliveryAddress}
+                  <strong>Delivery Address:</strong> {order.deliveryAddress || 'N/A'}
                 </div>
                 <div className="order-payment">
                   <strong>Payment:</strong> {order.paymentMethod?.toUpperCase() || 'N/A'}
                 </div>
                 <div className="order-total">
-                  <strong>Total:</strong> ${order.totalAmount.toFixed(2)}
+                  <strong>Total:</strong> ${(order.totalAmount || 0).toFixed(2)}
                 </div>
               </div>
             </div>

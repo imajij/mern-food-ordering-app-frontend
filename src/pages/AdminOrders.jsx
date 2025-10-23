@@ -143,22 +143,22 @@ const AdminOrders = () => {
 
               <div className="order-items">
                 <strong>Items:</strong>
-                {order.items.map((item, index) => (
+                {order.items?.map((item, index) => (
                   <div key={index} className="order-item">
-                    <span>{item.food?.name || 'Item'} x {item.quantity}</span>
-                    <span>${(item.price * item.quantity).toFixed(2)}</span>
+                    <span>{item.food?.name || 'Item'} x {item.quantity || 0}</span>
+                    <span>${((item.price || 0) * (item.quantity || 0)).toFixed(2)}</span>
                   </div>
-                ))}
+                )) || <p>No items</p>}
               </div>
 
               <div className="order-address">
                 <strong>Delivery Address:</strong>
-                <p>{order.deliveryAddress}</p>
+                <p>{order.deliveryAddress || 'N/A'}</p>
               </div>
 
               <div className="order-payment">
                 <p><strong>Payment:</strong> {order.paymentMethod?.toUpperCase() || 'N/A'}</p>
-                <p className="order-total"><strong>Total:</strong> ${order.totalAmount.toFixed(2)}</p>
+                <p className="order-total"><strong>Total:</strong> ${(order.totalAmount || 0).toFixed(2)}</p>
               </div>
 
               <div className="order-actions">
