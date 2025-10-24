@@ -13,14 +13,7 @@
 
 ---
 
-## 📸 Screenshots
 
-<div align="center">
-  <img src="https://via.placeholder.com/800x400/667eea/ffffff?text=🏠+Home+Page" alt="Home Page" width="45%" />
-  <img src="https://via.placeholder.com/800x400/764ba2/ffffff?text=🍔+Menu+Page" alt="Menu Page" width="45%" />
-  <img src="https://via.placeholder.com/800x400/ff6b35/ffffff?text=🛒+Cart+Page" alt="Cart Page" width="45%" />
-  <img src="https://via.placeholder.com/800x400/06d6a0/ffffff?text=✅+Checkout" alt="Checkout" width="45%" />
-</div>
 
 ---
 
