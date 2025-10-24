@@ -62,7 +62,7 @@ Before you begin, ensure you have:
 
 - ✅ **Node.js** >= 16.x
 - ✅ **npm** or **yarn**
-- ✅ **Backend API** running ([see backend repo](https://github.com/yourusername/mern-food-ordering-app-backend))
+- ✅ **Backend API** running ([see backend repo](https://github.com/imajij/mern-food-ordering-app-backend))
 
 ---
 
@@ -70,7 +70,7 @@ Before you begin, ensure you have:
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/imajij/mern-food-ordering-app-frontend
 cd mern-food-ordering-app-frontend
 ```
 
@@ -117,9 +117,3 @@ yarn dev
 | `npm run preview` | 👀 Preview production build locally |
 
 ---
-
-## 📁 Project Structure
-````
-<userPrompt>
-Provide the fully rewritten file, incorporating the suggested code change. You must produce the complete file.
-</userPrompt>
